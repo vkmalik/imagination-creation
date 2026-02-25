@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Imagination Creation Shop - East Calder</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="bg-light">
+    <div class="container py-5">
+      <h1 class="text-center mb-4">Imagination Creation Shop - East Calder</h1>
+
+      <!-- Description -->
+      <div class="text-center mb-5">
+        <p class="lead">
+          🎨 <strong>Welcome to Our Fun Fundraising Shop!</strong>
+        </p>
+        <p class="lead">
+          Pick your favorite handmade clay creation for just
+          <strong>£2</strong> — tell us what you want, and we’ll craft it! Once
+          dry, <strong>Thea or Emily</strong> will deliver it to your doorstep
+          tomorrow.
+        </p>
+        <p class="lead">
+          Our shop is on the grass near the car park at the doctors on Main
+          Street.
+        </p>
+        <p class="lead">
+          ❤️ Half of every £2 goes to children in need and guide dog programs.
+        </p>
+        <p class="lead">
+          🗓️ Starts <strong>Saturday, 17th March 2026</strong> — grab your
+          creation and join the fun!
+        </p>
+      </div>
+
+      <!-- Items -->
+      <div id="items-container" class="row g-4 mb-5"></div>
+
+      <!-- Order Form -->
+      <h2 class="mb-3">Place an Order</h2>
+      <form id="order-form" class="row g-3">
+        <div class="col-12 col-md-6">
+          <label for="item-select" class="form-label">Select Item</label>
+          <select id="item-select" class="form-select" required></select>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <label for="fullName" class="form-label">Full Name</label>
+          <input type="text" id="fullName" class="form-control" required />
+        </div>
+
+        <div class="col-12 col-md-6">
+          <label for="addressLine1" class="form-label">Address Line 1</label>
+          <input type="text" id="addressLine1" class="form-control" required />
+        </div>
+
+        <div class="col-12 col-md-6">
+          <label for="addressLine2" class="form-label">Address Line 2</label>
+          <input type="text" id="addressLine2" class="form-control" />
+        </div>
+
+        <div class="col-12 col-md-6">
+          <label for="city" class="form-label">City</label>
+          <input type="text" id="city" class="form-control" required />
+        </div>
+
+        <div class="col-12 col-md-6">
+          <label for="postcode" class="form-label">Postcode</label>
+          <input type="text" id="postcode" class="form-control" required />
+        </div>
+
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary w-100">
+            Place Order
+          </button>
+        </div>
+      </form>
+
+      <!-- Message -->
+      <div id="message" class="mt-4 text-center fw-bold text-success"></div>
+
+      <!-- Footer - Kids -->
+      <hr class="my-5" />
+      <div class="kids-section text-center">
+        <h4 class="mb-3">Created with ❤️ by our little team</h4>
+        <div class="d-flex justify-content-center flex-wrap gap-3">
+          <span class="kid-badge">🎨 Thea</span>
+          <span class="kid-badge">🖌️ Jinal</span>
+          <span class="kid-badge">🖍️ Emily G</span>
+          <span class="kid-badge">🧩 Zoe</span>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
