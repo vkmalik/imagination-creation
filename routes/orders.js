@@ -43,17 +43,18 @@ router.post('/', async (req, res) => {
 
     await newOrder.save();
 
-    try {
-      await sendOrderConfirmationEmail({
-        customer,
-        itemSnapshot: newOrder.itemSnapshot,
-        notes,
-        _id: newOrder._id,
-      });
-      console.log('Confirmation email sent successfully');
-    } catch (error) {
-      console.error('Failed to send confirmation email:', error);
-    }
+    // TODO: SEND EMAIL TO OWNER WITH ORDER DETAILS
+    // try {
+    //   await sendOrderConfirmationEmail({
+    //     customer,
+    //     itemSnapshot: newOrder.itemSnapshot,
+    //     notes,
+    //     _id: newOrder._id,
+    //   });
+    //   console.log('Confirmation email sent successfully');
+    // } catch (error) {
+    //   console.error('Failed to send confirmation email:', error);
+    // }
 
     res.status(201).json({
       message:
