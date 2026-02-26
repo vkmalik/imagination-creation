@@ -5,7 +5,7 @@ const Item = require('../models/Item');
 
 router.post('/', async (req, res) => {
   try {
-    const { itemId, customer } = req.body;
+    const { itemId, customer, notes } = req.body;
 
     if (
       !itemId ||
@@ -15,6 +15,12 @@ router.post('/', async (req, res) => {
       !customer?.postcode
     ) {
       return res.status(400).json({ message: 'Missing required fields' });
+    }
+
+    if (notes && notes.length > 500) {
+      return res
+        .status(400)
+        .json({ message: 'Notes too long (max 500 characters)' });
     }
 
     const item = await Item.findById(itemId);
@@ -30,11 +36,15 @@ router.post('/', async (req, res) => {
         price: item.price,
       },
       customer,
+      notes,
     });
 
     await newOrder.save();
 
-    res.status(201).json({ message: 'Order placed successfully' });
+    res.status(201).json({
+      message:
+        '🎉 Thank you! Your order has been received. We’ll deliver your clay as soon as it is ready!',
+    });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Server error' });

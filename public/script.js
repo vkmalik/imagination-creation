@@ -45,6 +45,7 @@ orderForm.addEventListener('submit', async (e) => {
       city: document.getElementById('city').value,
       postcode: document.getElementById('postcode').value,
     },
+    notes: document.getElementById('notes').value || '',
   };
 
   const res = await fetch('/api/orders', {

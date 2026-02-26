@@ -106,3 +106,33 @@ body {
     padding: 10px 18px; 
   }
 }
+
+.order-notes {
+    background-color: #fff8e1;
+    border: 2px dashed #ffb300;
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+.order-notes label {
+    font-weight: 600;
+    color: #5d4037;
+}
+
+.order-notes textarea {
+    border-radius: 8px;
+    resize: vertical;
+    min-height: 80px;
+    font-size: 0.95rem;
+}
+
+.order-notes .form-text {
+    color: #5d4037;
+    font-style: italic;
+}
+
+.order-warning {
+    color: #b71c1c;
+    font-weight: 500;
+    margin-top: 0.5rem;
+}

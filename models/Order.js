@@ -43,7 +43,11 @@ const orderSchema = new mongoose.Schema(
         default: 'UK',
       },
     },
-
+    notes: {
+      type: String,
+      trim: true,
+      maxlength: 500,
+    },
     status: {
       type: String,
       default: 'pending',
