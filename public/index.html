@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Imagination Creation Shop - East Calder</title>
-    <!-- Bootstrap CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -15,14 +14,13 @@
     <div class="container py-5">
       <h1 class="text-center mb-4">Imagination Creation Shop - East Calder</h1>
 
-      <!-- Description -->
       <div class="text-center mb-5">
         <p class="lead">
           🎨 <strong>Welcome to Our Fun Fundraising Shop!</strong>
         </p>
         <p class="lead">
           Pick your favorite handmade clay creation for just
-          <strong>£2</strong> — tell us what you want, and we’ll craft it! Once
+          <strong>£2</strong> - tell us what you want, and we’ll craft it! Once
           dry, <strong>Thea or Emily</strong> will deliver it to your doorstep
           tomorrow.
         </p>
@@ -34,15 +32,13 @@
           ❤️ Half of every £2 goes to children in need and guide dog programs.
         </p>
         <p class="lead">
-          🗓️ Starts <strong>Saturday, 17th March 2026</strong> — grab your
+          🗓️ Starts <strong>Saturday, 17th March 2026</strong> - grab your
           creation and join the fun!
         </p>
       </div>
 
-      <!-- Items -->
       <div id="items-container" class="row g-4 mb-5"></div>
 
-      <!-- Order Form -->
       <h2 class="mb-3">Place an Order</h2>
       <form id="order-form" class="row g-3">
         <div class="col-12 col-md-6">
@@ -75,6 +71,24 @@
           <input type="text" id="postcode" class="form-control" required />
         </div>
 
+        <div class="col-12 order-notes">
+          <label for="notes" class="form-label"
+            >📝 Order Notes (Optional)</label
+          >
+          <textarea
+            id="notes"
+            class="form-control"
+            rows="3"
+            maxlength="500"
+            placeholder="Any special instructions? e.g., gift wrap, call before delivery..."
+          ></textarea>
+          <div class="form-text">Maximum 500 characters</div>
+          <div class="form-text order-warning">
+            ⚠️ Fun reminder: don’t put any sensitive info like card numbers -
+            we’ll collect payment when we deliver! 😎
+          </div>
+        </div>
+
         <div class="col-12">
           <button type="submit" class="btn btn-primary w-100">
             Place Order
@@ -82,10 +96,8 @@
         </div>
       </form>
 
-      <!-- Message -->
       <div id="message" class="mt-4 text-center fw-bold text-success"></div>
 
-      <!-- Footer - Kids -->
       <hr class="my-5" />
       <div class="kids-section text-center">
         <h4 class="mb-3">Created with ❤️ by our little team</h4>
