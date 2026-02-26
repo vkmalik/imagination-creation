@@ -3,6 +3,8 @@ const router = express.Router();
 const Order = require('../models/Order');
 const Item = require('../models/Item');
 
+const { sendOrderConfirmationEmail } = require('../lib/send-email');
+
 router.post('/', async (req, res) => {
   try {
     const { itemId, customer, notes } = req.body;
@@ -40,6 +42,18 @@ router.post('/', async (req, res) => {
     });
 
     await newOrder.save();
+
+    try {
+      await sendOrderConfirmationEmail({
+        customer,
+        itemSnapshot: newOrder.itemSnapshot,
+        notes,
+        _id: newOrder._id,
+      });
+      console.log('Confirmation email sent successfully');
+    } catch (error) {
+      console.error('Failed to send confirmation email:', error);
+    }
 
     res.status(201).json({
       message:

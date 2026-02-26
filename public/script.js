@@ -36,28 +36,46 @@ async function loadItems() {
 orderForm.addEventListener('submit', async (e) => {
   e.preventDefault();
 
-  const orderData = {
-    itemId: itemSelect.value,
-    customer: {
-      fullName: document.getElementById('fullName').value,
-      addressLine1: document.getElementById('addressLine1').value,
-      addressLine2: document.getElementById('addressLine2').value,
-      city: document.getElementById('city').value,
-      postcode: document.getElementById('postcode').value,
-    },
-    notes: document.getElementById('notes').value || '',
-  };
+  const submitBtn = orderForm.querySelector('button[type="submit"]');
+  const originalBtnHTML = submitBtn.innerHTML;
+  submitBtn.disabled = true;
+  submitBtn.setAttribute('aria-disabled', 'true');
+  submitBtn.innerHTML =
+    '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Placing...';
 
-  const res = await fetch('/api/orders', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(orderData),
-  });
+  try {
+    const orderData = {
+      itemId: itemSelect.value,
+      customer: {
+        fullName: document.getElementById('fullName').value,
+        addressLine1: document.getElementById('addressLine1').value,
+        addressLine2: document.getElementById('addressLine2').value,
+        city: document.getElementById('city').value,
+        postcode: document.getElementById('postcode').value,
+      },
+      notes: document.getElementById('notes').value || '',
+    };
 
-  const result = await res.json();
-  messageDiv.textContent = result.message;
+    const res = await fetch('/api/orders', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(orderData),
+    });
 
-  orderForm.reset();
+    const result = await res.json();
+    messageDiv.textContent = result.message;
+
+    if (res.ok) {
+      orderForm.reset();
+    }
+  } catch (err) {
+    console.error('Order request failed', err);
+    messageDiv.textContent = 'Sorry — could not place order. Please try again.';
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.removeAttribute('aria-disabled');
+    submitBtn.innerHTML = originalBtnHTML;
+  }
 });
 
 loadItems();
